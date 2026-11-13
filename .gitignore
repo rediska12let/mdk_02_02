@@ -1,0 +1,32 @@
+# .NET and IDE outputs
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+TestResults/
+coverage/
+# secrets, local data, and medical exports
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+appsettings.Production.json
+**/*.sqlite
+**/*.db
+**/*.db-wal
+**/*.db-shm
+*.bak
+*.dump
+*.pfx
+*.pem
+*.key
+*.p12
+private-data/
+patient-data/
+data/real/
+# tooling
+__pycache__/
+*.pyc
+.DS_Store
