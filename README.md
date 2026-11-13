@@ -63,9 +63,7 @@ python tools/issue_dev_token.py clinician-001 Clinician
 
 ```powershell
 $token = "PASTE_DEV_JWT"
-Invoke-RestMethod -Method Post -Uri http://127.0.0.1:5076/api/v1/patients \
-  -Headers @{Authorization="Bearer $token"} -ContentType "application/json" \
-  -Body '{"familyName":"Тестов","givenName":"Иван","birthDate":"2000-01-01"}'
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:5076/api/v1/patients -Headers @{Authorization="Bearer $token"} -ContentType "application/json" -Body '{"familyName":"Тестов","givenName":"Иван","birthDate":"2000-01-01"}'
 ```
 
 GET `/health` доступен без авторизации. Доступные маршруты приведены в `docs/api/openapi.yaml`.
@@ -76,7 +74,7 @@ GET `/health` доступен без авторизации. Доступные
 dotnet test tests/MedicalRecords.Tests/MedicalRecords.Tests.csproj
 ```
 
-Unit-тесты проверяют правила доступа и валидации. Проверка CI настроена, но до получения результатов GitHub Actions **успех сборки не утверждается**. В текущей среде подготовки отсутствует .NET SDK, поэтому локальная компиляция не проводилась.
+Unit-тесты проверяют правила доступа и валидации. GitHub Actions успешно выполнил восстановление зависимостей и unit-тесты (run #5). Локальная компиляция в среде подготовки не проводилась. Интеграционные тесты с PostgreSQL и аудит безопасности пока не выполнены.
 
 ## Безопасность и ограничения
 
